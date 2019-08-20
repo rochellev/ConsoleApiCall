@@ -2,6 +2,8 @@
 using RestSharp;
 using RestSharp.Authenticators;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace ConsoleApiCall
 {
@@ -21,14 +23,16 @@ namespace ConsoleApiCall
             {
                 response = await GetResponseContentAsync(client, request) as RestResponse;
             }).Wait();
-            Console.WriteLine(response.Content);
+            JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
+            Console.WriteLine(jsonResponse["results"]);
         }
 
         // 5
         public static Task<IRestResponse> GetResponseContentAsync(RestClient theClient, RestRequest theRequest)
         {
             var tcs = new TaskCompletionSource<IRestResponse>();
-            theClient.ExecuteAsync(theRequest, response => {
+            theClient.ExecuteAsync(theRequest, response =>
+            {
                 tcs.SetResult(response);
             });
             return tcs.Task;
