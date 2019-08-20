@@ -12,13 +12,11 @@
 
 ## Installation
 * Follow the following stepts using the terminal
-* After running project, got to http://localhost:5000
 
 ```sh
-$ git clone https://github.com/rochellev/WildlifePark.Solution.git
-$ cd \WildlifePark.Solution\WildlifePark
+$ git clone https://github.com/rochellev/ConsoleApiCall.git
+$ cd \ConsoleApiCall
 $ dotnet restore
-$ dotnet ef database update
 $ dotnet run
 ```
 
