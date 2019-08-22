@@ -14,7 +14,7 @@ namespace ConsoleApiCall
             // 1
             var client = new RestClient("https://api.nytimes.com/svc/topstories/v2");
             // 2
-            var request = new RestRequest("home.json?api-key=[YOUR-API-KEY-HERE]", Method.GET);
+            var request = new RestRequest("home.json?api-key=kWzndQdzsfwvunGur5JBnqeFhzCH0yg1", Method.GET);
             // 3
             var response = new RestResponse();
 
